@@ -36,7 +36,7 @@ export default function SKU() {
     alert("Create new SKU item functionality would go here");
   };
 
-  const [colDefs, setColDefs] = useState([
+  const colDefs = [
     {
       headerName: "",
       width: 50,
@@ -63,7 +63,7 @@ export default function SKU() {
       headerName: "Cost",
       cellClass: "text-right",
     },
-  ]);
+  ];
 
   const defaultColDef = {
     flex: 1,

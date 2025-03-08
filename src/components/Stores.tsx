@@ -14,7 +14,7 @@ const DeleteButtonRenderer = (props: any) => {
 
   return (
     <div
-      className="cursor-pointer text-gray-700 flex items-center justify-center h-full"
+      className="cursor-pointer flex justify-center align-middle"
       onClick={handleClick}
     >
       <FaTrash />
@@ -25,12 +25,12 @@ const DeleteButtonRenderer = (props: any) => {
 export const Stores = () => {
   const [rowData, setRowData] = useState(stores);
 
-  //  handle row deletion
+  // Function to handle row deletion
   const handleDeleteRow = (data: any) => {
     setRowData(rowData.filter((row) => row.ID !== data.ID));
   };
 
-  const [colDefs, setColDefs] = useState([
+  const colDefs = [
     {
       headerName: "",
       width: 50,
@@ -51,7 +51,8 @@ export const Stores = () => {
     { field: "Label" },
     { field: "City" },
     { field: "State" },
-  ]);
+  ];
+
   const defaultColDef = {
     flex: 1,
   };
@@ -65,7 +66,7 @@ export const Stores = () => {
         State: string;
       }>
         rowData={rowData}
-        columnDefs={colDefs as any}
+        columnDefs={colDefs as any} // Type assertion to fix type error
         defaultColDef={defaultColDef}
       />
       <div className="fixed bottom-0 left-52 right-0 py-4 bg-white border-t border-gray-200 shadow-md z-10">

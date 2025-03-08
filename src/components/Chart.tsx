@@ -1,6 +1,5 @@
 import { useState } from "react";
 import {
-  BarChart,
   Bar,
   Line,
   XAxis,
@@ -42,7 +41,7 @@ const CustomTooltip = ({
 
 export default function Chart() {
   // State to store the processed data
-  const [data, setData] = useState(() => {
+  const [data] = useState(() => {
     // Process the data to ensure GM Dollars and GM % are numbers
     return chartData.map((item) => ({
       ...item,
@@ -59,6 +58,9 @@ export default function Chart() {
 
   return (
     <div className="w-full h-full p-4">
+      <h2 className="text-xl font-semibold mb-4">
+        GM Dollars and Percentage by Week
+      </h2>
       <div className="bg-white rounded-lg shadow-md p-6 w-full h-[550px]">
         <ResponsiveContainer width="100%" height="100%">
           <ComposedChart
@@ -83,7 +85,7 @@ export default function Chart() {
               yAxisId="left"
               tickFormatter={formatDollar}
               label={{
-                value: "",
+                value: "GM Dollars",
                 angle: -90,
                 position: "insideLeft",
                 style: { textAnchor: "middle", fill: "#666" },
@@ -96,7 +98,7 @@ export default function Chart() {
               tickFormatter={(value) => `${value}%`}
               domain={[0, 100]}
               label={{
-                value: "",
+                value: "GM %",
                 angle: 90,
                 position: "insideRight",
                 style: { textAnchor: "middle", fill: "#666" },
@@ -108,7 +110,7 @@ export default function Chart() {
             <Bar
               yAxisId="left"
               dataKey="GM Dollars"
-              fill="#3b82f6"
+              fill="#3b82f6" // Tailwind blue-500
               radius={[4, 4, 0, 0]}
               name="GM Dollars"
               animationDuration={1500}
@@ -117,9 +119,9 @@ export default function Chart() {
               yAxisId="right"
               type="monotone"
               dataKey="GM %"
-              stroke="#b95910ec"
+              stroke="#10b981" // Tailwind green-500
               strokeWidth={2}
-              dot={{ fill: "#b95910ec", r: 4 }}
+              dot={{ fill: "#10b981", r: 4 }}
               activeDot={{ r: 6 }}
               name="GM %"
             />
