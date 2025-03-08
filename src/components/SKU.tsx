@@ -73,7 +73,7 @@ export default function SKU() {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full relative pb-16">
       <div className="ag-theme-alpine">
         <AgGridReact<{
           ID: string;
@@ -91,14 +91,16 @@ export default function SKU() {
         />
       </div>
 
-      {/* Button below data grid */}
-      <div className="mt-6 border-t border-gray-200 pt-4">
-        <button
-          className="flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200"
-          onClick={handleCreateNewItem}
-        >
-          <FaPlus className="mr-2" /> Create New Item
-        </button>
+      {/* Sticky Button at bottom of main content */}
+      <div className="fixed bottom-0 left-52 right-0 py-4 bg-white border-t border-gray-200 shadow-md z-10">
+        <div className="px-5">
+          <button
+            className="flex items-center justify-center bg-orange-400 hover:bg-orange-500 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200"
+            onClick={handleCreateNewItem}
+          >
+            <FaPlus className="mr-2" /> New SKU
+          </button>
+        </div>
       </div>
     </div>
   );
