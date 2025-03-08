@@ -91,7 +91,7 @@ export default function SKU() {
         />
       </div>
 
-      {/* Sticky Button at bottom of main content */}
+      {/* Sticky Button at bottom of data content */}
       <div className="fixed bottom-0 left-52 right-0 py-4 bg-white border-t border-gray-200 shadow-md z-10">
         <div className="px-5">
           <button

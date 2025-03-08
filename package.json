@@ -10,7 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.0.10",
+    "@clerk/clerk-react": "^5.24.1",
+    "@tailwindcss/vite": "^4.0.12",
     "@types/react-router-dom": "^5.3.3",
     "ag-grid-react": "^33.1.1",
     "react": "^19.0.0",

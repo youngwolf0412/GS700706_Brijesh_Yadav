@@ -2,7 +2,7 @@ import { AllCommunityModule, ModuleRegistry } from "ag-grid-community";
 import { AgGridReact } from "ag-grid-react";
 import { useState } from "react";
 import { stores } from "../constants/constant";
-import { FaTrash } from "react-icons/fa";
+import { FaPlus, FaTrash } from "react-icons/fa";
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
@@ -25,7 +25,7 @@ const DeleteButtonRenderer = (props: any) => {
 export const Stores = () => {
   const [rowData, setRowData] = useState(stores);
 
-  // Function to handle row deletion
+  //  handle row deletion
   const handleDeleteRow = (data: any) => {
     setRowData(rowData.filter((row) => row.ID !== data.ID));
   };
@@ -65,9 +65,16 @@ export const Stores = () => {
         State: string;
       }>
         rowData={rowData}
-        columnDefs={colDefs as any} // Type assertion to fix type error
+        columnDefs={colDefs as any}
         defaultColDef={defaultColDef}
       />
+      <div className="fixed bottom-0 left-52 right-0 py-4 bg-white border-t border-gray-200 shadow-md z-10">
+        <div className="px-5">
+          <button className="flex items-center cursor-pointer justify-center bg-orange-400 hover:bg-orange-500 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200">
+            <FaPlus className="mr-2" /> New Store
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
